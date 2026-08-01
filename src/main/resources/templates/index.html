@@ -88,7 +88,8 @@
 
             <div class="acciones-form">
 
-                <button type="submit" class="boton boton-primario"
+                <button type="submit"
+                        class="boton boton-primario"
                         th:text="${producto.id != null ? 'Actualizar' : 'Guardar'}">
                 </button>
 
@@ -130,48 +131,50 @@
         <table class="tabla">
 
             <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Categoría</th>
-                <th>Precio</th>
-                <th>Stock</th>
-                <th>Acciones</th>
-            </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
             </thead>
 
             <tbody>
 
-            <tr th:each="p : ${productos}">
+                <tr th:each="p : ${productos}">
 
-                <td th:text="${p.id}"></td>
-                <td th:text="${p.nombre}"></td>
-                <td th:text="${p.categoria}"></td>
-                <td th:text="${p.precio}"></td>
-                <td th:text="${p.stock}"></td>
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.nombre}"></td>
+                    <td th:text="${p.categoria}"></td>
+                    <td th:text="${'$ ' + #numbers.formatDecimal(p.precio,1,'COMMA',2,'POINT')}"></td>
+                    <td th:text="${p.stock}"></td>
 
-                <td>
+                    <td class="acciones">
 
-                    <a th:href="@{/editar/{id}(id=${p.id})}">
-                        Editar
-                    </a>
+                        <a th:href="@{/editar/{id}(id=${p.id})}"
+                           class="btn-editar">
+                            Editar
+                        </a>
 
-                    |
+                        <a th:href="@{/eliminar/{id}(id=${p.id})}"
+                           class="btn-eliminar"
+                           onclick="return confirm('¿Desea eliminar este producto?')">
+                            Eliminar
+                        </a>
 
-                    <a th:href="@{/eliminar/{id}(id=${p.id})}"
-                       onclick="return confirm('¿Desea eliminar este producto?')">
-                        Eliminar
-                    </a>
+                    </td>
 
-                </td>
+                </tr>
 
-            </tr>
+                <tr th:if="${#lists.isEmpty(productos)}">
 
-            <tr th:if="${#lists.isEmpty(productos)}">
-                <td colspan="6">
-                    No hay productos registrados.
-                </td>
-            </tr>
+                    <td colspan="6" class="sin-datos">
+                        No hay productos registrados.
+                    </td>
+
+                </tr>
 
             </tbody>
 
