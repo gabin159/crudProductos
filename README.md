@@ -110,7 +110,7 @@ http://localhost:8080
 
 ---
 
-## Justificación del trabajo
+## Justificación del trabajoo
 
 Para este proyecto decidí utilizar Spring Boot porque facilita el desarrollo de aplicaciones web mediante una estructura organizada y herramientas que reducen la configuración manual. Además, Spring Data JPA simplifica el acceso a la base de datos y Thymeleaf permite integrar fácilmente la información del backend con la interfaz.
 
