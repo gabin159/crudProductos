@@ -13,31 +13,32 @@ public class ProductoService {
     @Autowired
     private ProductoRepository productoRepository;
 
-    // Guarda o actualiza un producto.
+    // Guardar o actualizar un producto
     public Producto guardar(Producto producto) {
         return productoRepository.save(producto);
     }
 
-    // Obtiene todos los productos registrados.
+    // Listar todos los productos
     public List<Producto> listarTodos() {
         return productoRepository.findAll();
     }
 
-    // Busca un producto por su ID.
+    // Buscar un producto por ID
     public Producto buscarPorId(Long id) {
         return productoRepository.findById(id).orElse(null);
     }
 
-    // Busca productos por nombre o código.
+    // Buscar productos únicamente por nombre
     public List<Producto> buscar(String texto) {
-        if (texto == null || texto.isBlank()) {
+
+        if (texto == null || texto.trim().isEmpty()) {
             return listarTodos();
         }
 
-        return productoRepository.findByNombreContainingIgnoreCaseOrCodigoContainingIgnoreCase(texto, texto);
+        return productoRepository.findByNombreContainingIgnoreCase(texto);
     }
 
-    // Elimina un producto por su ID.
+    // Eliminar un producto
     public void eliminar(Long id) {
         productoRepository.deleteById(id);
     }

@@ -19,8 +19,7 @@ public class Producto {
     // Nombre del producto.
     private String nombre;
 
-    // Código del producto.
-    private String codigo;
+  
 
     // Categoría a la que pertenece el producto.
     private String Categoria;
@@ -29,7 +28,7 @@ public class Producto {
     private double precio;
 
     // Cantidad disponible del producto.
-    private int cantidad;
+    private int stock;
 
 
     // Constructor vacío (Spring Boot lo necesita).
@@ -38,14 +37,14 @@ public class Producto {
 
 
     // Constructor con parámetros.
-    public Producto(String nombre, String codigo, String categoria,
-                    double precio, int cantidad) {
+    public Producto(String nombre, String categoria,
+                    double precio, int stock) {
 
         this.nombre = nombre;
-        this.codigo = codigo;
+     
         this.Categoria = categoria;
         this.precio = precio;
-        this.cantidad = cantidad;
+        this.stock = stock;
     }
 
 
@@ -72,16 +71,6 @@ public class Producto {
     }
 
 
-    // Código
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-
     // Categoría
     public String getCategoria() {
         return Categoria;
@@ -102,13 +91,13 @@ public class Producto {
     }
 
 
-    // Cantidad
-    public int getCantidad() {
-        return cantidad;
+    // Stock
+    public int getStock() {
+        return stock;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
 }
