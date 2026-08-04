@@ -92,7 +92,7 @@ git clone https://github.com/gabin159/crudProductos.git
 cd crudProductos
 ```
 
-3. Abrir el proyecto con Visual Studio Code o IntelliJ.
+3. Abrir el proyecto con Visual Studio Code
 
 4. Esperar a que Maven descargue las dependencias.
 
